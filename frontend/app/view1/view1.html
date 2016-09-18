@@ -1,7 +1,24 @@
-<p>This is the partial for view 1.</p>
+<p>TODO: </p>
+<p>1. Add an alarm</p>
+<p>2. Edit an alarm</p>
+<p>3. Delete an alarm</p>
+<p>4. Scheduling</p>
 
 <div ng-repeat="(key, groupname) in group">
 	<p>{{key}} - {{groupname.state}}</p>
 	Change Mode: <input type="text" ng-model="newState"/>
-	<button ng-click="changemode(key, newState)">Change mode</button>
+	<button ng-click="changemode(key, newState)">Change mode</button><br><br>
+
+	Alarms:
+	<div ng-repeat="alarm in groupname.alarms track by $index">
+		Alarm {{$index + 1}} - Every day at {{alarm.setoffTime}} for {{alarm.duration}}
+		<button ng-click="alarm.edit=!alarm.edit">Edit alarm</button>
+		show edit alarm stuff<br>
+		Time: <input type="time" ng-model="alarm.newSetoffTime" step="60"><br>
+		Duration: <input type="number" ng-model="alarm.newDuration"><br>
+	</div>
+	<button>Add alarm</button>
+
+
+	
 </div> 

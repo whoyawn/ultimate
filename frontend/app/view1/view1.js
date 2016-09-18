@@ -15,6 +15,17 @@ angular.module('myApp.view1', ['ngRoute'])
 		if(!snapshot.val()) return;
 		$timeout(function(){
 			$scope.group = snapshot.val();
+			for (var key in $scope.group){
+				if (!$scope.group[key].alarms) return;
+				$scope.group[key].alarms.forEach(function(alarm){
+					alarm.newDuration = alarm.duration;
+					alarm.newSetoffTime = new Date(2016, 9, 18, alarm.setoffTime/100, alarm.setoffTime%100);
+
+					alarm.setoffTime = formatAPMP((alarm.setoffTime));
+					alarm.duration = alarm.duration / 60 + " min";
+				});
+				
+			};
 		});
 
 	});
@@ -24,4 +35,19 @@ angular.module('myApp.view1', ['ngRoute'])
 		firebase.database().ref('Group/' + key + '/').update({state: newState});
  	}
 
+ 	function formatAPMP(alarmTime) {
+ 		alarmTime = Number.parseInt(alarmTime);
+    var hours 	= alarmTime/100;
+    var minutes = alarmTime % 100;
+    var ampm 	= hours >= 12 ? ' pm' : ' am';
+    hours 		= hours % 12;
+    hours 		= hours ? hours : 12; // the hour '0' should be '12'
+    minutes 	= minutes < 10 ? '0' + minutes : minutes;
+    var strTime = hours + ':' + minutes + ampm;
+    return strTime;
+}
+
+
 }]);
+
+
