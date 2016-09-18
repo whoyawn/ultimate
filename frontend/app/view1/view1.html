@@ -26,9 +26,6 @@
 	<br>
 	<div ng-if="!groupname.waketime" ng-if="!groupname.bedtime" ng-repeat="warning in warnings track by $index">{{warning}}</div>
 	<br>
-	<div ng-if="groupname.waketime" ng-if="groupname.bedtime">
-		<u>Your</u> Typical Schedule: You are typically awake between {{groupname.waketimeFormatted}} and {{groupname.bedtimeFormatted}} <button ng-click="groupname.editSleepWake=!groupname.editSleepWake">Change</button>
-	</div>
 	<button ng-if="!groupname.waketime" ng-if="!groupname.bedtime" ng-click="groupname.editSleepWake=!groupname.editSleepWake">Add Sleep/Wake Time</button>
 	<div ng-if="groupname.editSleepWake">
 		{{groupname}}
