@@ -23,7 +23,8 @@ def mode_follow(sensors, time):
 def mode_alarm(sensors, time):
     blink_a = [[(255, 0, 0, 255) for x in range(len(sensors[0]))] for y in range(len(sensors))]
     blink_b = [[(0, 0, 255, 255) for x in range(len(sensors[0]))] for y in range(len(sensors))]
-    if time.second % 2 == 0:
+
+    if time.microsecond / 1000 >= 500:
         return blink_a
     else:
         return blink_b
