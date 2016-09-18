@@ -14,37 +14,56 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
   <link rel="stylesheet" href="app.css">
+  
 
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/3.0.5/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.0.5/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyAsv3-mp3gzOYIw8K2rcGObm0BX83smlYc",
-      authDomain: "stockgame-c5e3f.firebaseapp.com",
-      databaseURL: "https://stockgame-c5e3f.firebaseio.com",
-      storageBucket: "stockgame-c5e3f.appspot.com",
-      messagingSenderId: "63230265155"
-    };
-    firebase.initializeApp(config);
-  </script>
+
   <style>
     .menu, ul {
 
       border-bottom: 0px solid transparent;
     }
+
+    body{
+      margin: 0;
+      padding: 0 0 8vh 0;
+    }
+    .wrapper {
+      margin: 10vh 15vw 8vh 15vw;
+      padding: 4%;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+    }
+
+    .footer{
+      position: abosolute;
+      bottom: 5px;
+      color: #f5f5f5;
+    }
+
+    body {
+      position: relative;
+    }
+
+    h1{
+      text-align: center;
+      padding-bottom: 3%;
+    }
+
   </style>
 </head>
 <body>
-<h1>
-  Customize your Ultimate Lights!
-</h1>
-  
+  <div class='wrapper'>
+    <h1 class="center">
+      Customize your Ultimate Lights!
+    </h1>
+    <img src="img/lightbulb.png" id="lightbulb"/>
+    <img src="img/lightbulb.png" id="lightbulb2"/> 
 
-  <div ng-view></div>
+      <div ng-view></div>
 
+      
+  </div>
   <div class="footer">
     Project for HackMIT 2016 by James Wall, Cheryl Li, Lukas Lao Beyer, and Huyanh Hoang    
   </div>
@@ -80,6 +99,8 @@
     firebase.initializeApp(config);
   </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="bower_components/angular-ui-clock/dist/angular-clock.js"></script>
+  <link rel="stylesheet" href="bower_components/angular-ui-clock/dist/angular-clock.css">
 
 </body>
 </html>

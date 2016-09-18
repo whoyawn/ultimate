@@ -1,37 +1,68 @@
 <div ng-repeat="(key, groupname) in group">
-	<h3 class="faded"> Group of lights with ID "{{key}}" is currently in "{{groupname.state}}" mode </h3>
-	Change Mode: <input type="text" ng-model="newState"/>
-	<button ng-click="changemode(key, newState)">Change mode</button><br><br>
-	<div>
-		<h4> Time: {{groupname.time}}</h4> 
+	<h3 class="faded">Lights 1:</h3>
+	<div class="lightGroup">
+		<label>Current Mode</label><!-- <button ng-click="stateEdit=!stateEdit">Edit</button> -->
+			<div class="datebutton">
+            <label>
+              <input type="radio" ng-model="groupname.newState" value="time">
+              <span ng-click="newState='time'">Time</span>
+            </label>
+          </div>
+          <div class="datebutton">
+            <label>
+              <input type="radio" ng-model="groupname.newState" value="follow">
+              <span ng-click="newState='follow'">Follow</span>
+            </label>
+          </div>
+          <div class="datebutton" ng-click="newState='alarm'">
+            <label>
+              <input type="radio" ng-model="groupname.newState" value="alarm">
+              <span>Alarm</span>
+            </label>
+          </div><br>
+          <hr>
+
+          <label class="header">Alarms: </label><br>
+			<div ng-repeat="alarm in groupname.alarms track by $index" ng-if="groupname.alarms">
+			<div class="alarm-list header">
+				Alarm {{$index + 1}} - Every day at {{alarm.setoffTime}} for {{alarm.duration}}
+				
+				<button ng-click="alarm.edit=!alarm.edit">Edit</button>
+				<div ng-show="alarm.edit">
+					Time: <input type="time" ng-model="alarm.newSetoffTime" step="60"><br>
+					Duration: <input type="number" ng-model="alarm.newDuration"><br>
+					<button ng-click="saveAlarmEdits($index, alarm, key)">Save</button>
+				</div>
+			</div>
+			<br>
+		    </div>
+		    <div align="left">
+				<button>Add alarm</button>	
+			</div>
+
+			<hr>
+
+		<div ng-if="!groupname.waketime" ng-if="!groupname.bedtime" ng-repeat="warning in warnings track by $index">{{warning}}</div>
+		<br>
+		<div ng-if="groupname.waketime" ng-if="groupname.bedtime">
+			<label class='header'>
+			<u>Your</u> Typical Schedule: You are typically awake between {{groupname.waketimeFormatted}} and {{groupname.bedtimeFormatted}} </label><button ng-click="groupname.editSleepWake=!groupname.editSleepWake">Change</button>
+		</div>
+		<button ng-if="!groupname.waketime" ng-if="!groupname.bedtime" ng-click="groupname.editSleepWake=!groupname.editSleepWake">Add Sleep/Wake Time</button>
+		<div ng-if="groupname.editSleepWake">
+			Awake from <input type="time" ng-model="groupname.newWakeTime"> to <input type="time" ng-model="groupname.newBedTime">
+			<button ng-click="changeAwakeTime(groupname, key)">Update!</button>
+		</div>
+	
+	<div><br><br>
+		<label class="timelabel">Time</label> <div class="simulationTime">{{groupname.formattedTime}}</div>
+		
 	</div>
 	<br>
 
-	<h4>Alarms: </h4>
-	<div ng-repeat="alarm in groupname.alarms track by $index" ng-if="groupname.alarms">
-	<div class="alarm-list">
-		Alarm {{$index + 1}} - Every day at {{alarm.setoffTime}} for {{alarm.duration}}
-		<br>
-		<button ng-click="alarm.edit=!alarm.edit">Edit alarm</button>
-		<div ng-show="alarm.edit">
-			Time: <input type="time" ng-model="alarm.newSetoffTime" step="60"><br>
-			Duration: <input type="number" ng-model="alarm.newDuration"><br>
-			<button ng-click="saveAlarmEdits($index, alarm, key)">Save</button>
-		</div>
-	</div>
+	
 	<br>
-	<div align="left">
-		<button>Add alarm</button>	
-	</div>
-	<br>
-	<div ng-if="!groupname.waketime" ng-if="!groupname.bedtime" ng-repeat="warning in warnings track by $index">{{warning}}</div>
-	<br>
-	<button ng-if="!groupname.waketime" ng-if="!groupname.bedtime" ng-click="groupname.editSleepWake=!groupname.editSleepWake">Add Sleep/Wake Time</button>
-	<div ng-if="groupname.editSleepWake">
-		{{groupname}}
-		Awake from <input type="time" ng-model="groupname.newWakeTime"> to <input type="time" ng-model="groupname.newBedTime">
-		<button ng-click="changeAwakeTime(groupname, key)">Update!</button>
-	</div>
 </div> 
+</div>
 <!-- <div class="col-sm-6">Lightbulbs will go here!!!!!!!!!!!!!!!!!!!!</div> -->
 
