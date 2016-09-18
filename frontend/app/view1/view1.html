@@ -1,18 +1,20 @@
 <div ng-repeat="(key, groupname) in group">
-	<p>{{key}} - {{groupname.state}}</p>
+	<h3 class="faded"> Group of lights with ID "{{key}}" is currently in "{{groupname.state}}" mode </h3>
 	Change Mode: <input type="text" ng-model="newState"/>
 	<button ng-click="changemode(key, newState)">Change mode</button><br><br>
 
-	Alarms:
+	<h4>Alarms: </h4>
 	<div ng-repeat="alarm in groupname.alarms track by $index">
-		Alarm {{$index + 1}} - Every day at {{alarm.setoffTime}} for {{alarm.duration}}
-		<button ng-click="alarm.edit=!alarm.edit">Edit alarm</button>
-		show edit alarm stuff<br>
-		Time: <input type="time" ng-model="alarm.newSetoffTime" step="60"><br>
-		Duration: <input type="number" ng-model="alarm.newDuration"><br>
+		<div class="col-md-4">
+			Alarm {{$index + 1}} - Every day at {{alarm.setoffTime}} for {{alarm.duration}}
+			<br>
+			<button ng-click="alarm.edit=!alarm.edit">Edit alarm</button>
+			Time: <input type="time" ng-model="alarm.newSetoffTime" step="60">
+			<br>
+			Duration: <input type="number" ng-model="alarm.newDuration">
+			<br>
+		</div>
 	</div>
-	<button>Add alarm</button>
-
-
-	
+	<br>
+	<button>Add alarm</button>	
 </div> 
