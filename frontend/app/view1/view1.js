@@ -11,6 +11,7 @@ angular.module('myApp.view1', ['ngRoute'])
 
 .controller('View1Ctrl', ['$scope', '$timeout', function($scope, $timeout) {
 
+	var globalkey;
 	firebase.database().ref('Group').on('value', function(snapshot){
 		if(!snapshot.val()) return;
 		$timeout(function(){
@@ -24,7 +25,10 @@ angular.module('myApp.view1', ['ngRoute'])
 					alarm.setoffTime = formatAPMP((alarm.setoffTime));
 					alarm.duration = Math.round(alarm.duration/60) + " min";
 				});
+				globalkey = key;
 
+				$scope.group[key].newState = $scope.group[key].state;
+				$scope.newState = $scope.group[key].state;
 				$scope.group[key].warnings = [];
 				
 				//format the sleep/wake times
@@ -51,10 +55,19 @@ angular.module('myApp.view1', ['ngRoute'])
 
 	}); // end firebase retreive data
 
-	$scope.changemode = function(key, newState){
+	$scope.changemode = function(key, newState, stateEdit){
 		if (['time', 'follow', 'alarm'].indexOf(newState) === -1) return;
 		firebase.database().ref('Group/' + key + '/').update({state: newState});
  	};
+
+ 	$scope.$watch('group.group1.newState', function(newValue, oldValue){
+ 		console.log(newValue);
+ 		if (newValue !== oldValue) {
+ 			firebase.database().ref('Group/group1/').update({state: newValue});
+ 		}
+ 		
+
+ 	});
 
  	// save alarm info to firebase
  	$scope.saveAlarmEdits = function(index, alarm, key){
