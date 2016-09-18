@@ -104,3 +104,21 @@ h3{
   font-size: 25px;
   display: inline-block;
 }
+
+#lightbulb {
+  width: 50px;
+  position: absolute;
+  top: 43px;
+  left: 90px;
+}
+
+#lightbulb2 {
+  width: 50px;
+  position: absolute;
+  top: 43px;
+  right: 90px;
+}
+
+.wrapper {
+  position: relative;
+}
