@@ -53,22 +53,18 @@
 			Awake from <input type="time" ng-model="groupname.newWakeTime"> to <input type="time" ng-model="groupname.newBedTime">
 			<button ng-click="changeAwakeTime(groupname, key)">Update!</button>
 		</div>
-
-		<!-- <div ng-if="stateEdit">
-			Change Mode: <input type="text" ng-model="newState"/>
-
-			<button ng-click="changemode(key, newState, stateEdit);stateEdit=false">Change!</button><br><br>
-		</div> -->
 	
-	
-	<div>
-		<h4> Time: {{groupname.time}}</h4> 
+	<div><br><br>
+		<label class="timelabel">Time</label> <div class="simulationTime">{{groupname.formattedTime}}</div>
+		
 	</div>
 	<br>
 
 	
 	<br>
 	
+	
 </div> 
+</div>
 <!-- <div class="col-sm-6">Lightbulbs will go here!!!!!!!!!!!!!!!!!!!!</div> -->
 

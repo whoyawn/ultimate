@@ -1,6 +1,12 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myModule', ['ds.clock']);
+angular.module("app", ["ds.clock"]).controller("AppCtrl", function ($scope) {
+        $scope.startTimeValue = 1430990693334;
+
+});
+
+angular.module('myApp.view1', ['ngRoute', 'ds.clock'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
@@ -47,8 +53,10 @@ angular.module('myApp.view1', ['ngRoute'])
 					$scope.group[key].newBedTime = new Date(2016, 9, 19, 7, 0);
 					$scope.group[key].warnings.push("Please enter your approximate bedtime.");
 				}
+				console.log($scope.group[key].time);
+				$scope.group[key].formattedTime = formatAPMP($scope.group[key].time);
 
-
+				console.log($scope.group[key].formattedTime);
 				
 			}
 		}); // end timeout
@@ -111,5 +119,7 @@ angular.module('myApp.view1', ['ngRoute'])
 
 
 }]);
+
+
 
 

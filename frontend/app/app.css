@@ -94,3 +94,13 @@ hr {
 h3{
   margin-left: 5%;
 }
+
+.simulationTime {
+  font-size: 30px;
+  display: inline-block;
+}
+
+.timelabel {
+  font-size: 25px;
+  display: inline-block;
+}
