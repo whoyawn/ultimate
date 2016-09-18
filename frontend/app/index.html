@@ -10,6 +10,20 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.0.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.0.5/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAsv3-mp3gzOYIw8K2rcGObm0BX83smlYc",
+      authDomain: "stockgame-c5e3f.firebaseapp.com",
+      databaseURL: "https://stockgame-c5e3f.firebaseio.com",
+      storageBucket: "stockgame-c5e3f.appspot.com",
+      messagingSenderId: "63230265155"
+    };
+    firebase.initializeApp(config);
+  </script>
 </head>
 <body>
   <ul class="menu">
