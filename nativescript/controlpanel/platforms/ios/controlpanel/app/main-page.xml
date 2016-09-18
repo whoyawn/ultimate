@@ -1,0 +1,33 @@
+<Page loaded="loaded" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+  <StackLayout>
+    <Label text="Customize your Ultimate Lights!" class="title"/>
+    <Label text="Lights 1:"/>
+    <Label text="Current Mode"/>
+    <StackLayout orientation="horizontal" style="horizontal-align: center;" >
+      <Button type="radio" text="Time" tap="{{ onTap }}" />
+      <Button text="Follow"/>
+      <Button text="Alarm"/>
+    </StackLayout>
+
+    <Label text="Alarms:"/>
+
+    <StackLayout orientation="horizontal">
+      <Label class="alarm" text="Alarm 1 - Everyday at 8:00am for 60 min"/>
+      <Button class="alarm" text="Edit" tap="{{ onTap }}" />
+    </StackLayout>
+
+    <StackLayout orientation="horizontal">
+      <Label class="alarm" text="Alarm 2 - Everyday at 9:12am for 2 min"/>
+      <Button class="alarm" text="Edit" tap="{{ onTap }}" />
+    </StackLayout>
+
+    <Button text="Add alarm" tap="{{ addAlarm }}"/>
+
+
+    <Label style="margin-top: 16" text="Your Typical Schedule: You are typically"/>
+    <Label text="awake between 8:07am and 11:23pm"/>
+    <Button text="Change"/>
+
+    <Label style="margin-top: 8" text="Time 7:19am"/>
+  </StackLayout>
+</Page>
