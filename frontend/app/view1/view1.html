@@ -2,6 +2,10 @@
 	<h3 class="faded"> Group of lights with ID "{{key}}" is currently in "{{groupname.state}}" mode </h3>
 	Change Mode: <input type="text" ng-model="newState"/>
 	<button ng-click="changemode(key, newState)">Change mode</button><br><br>
+	<div>
+		<h4> Time: {{groupname.time}}</h4> 
+	</div>
+	<br>
 
 	<h4>Alarms: </h4>
 	<div ng-repeat="alarm in groupname.alarms track by $index" ng-if="groupname.alarms">
