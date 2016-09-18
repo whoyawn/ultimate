@@ -1,0 +1,65 @@
+body {
+	margin: 0;
+	background: url('../img/mood_lighting.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-size: cover;
+	background-repeat:no-repeat;
+	background-position: center center;
+	font: 16px/21px;
+	color: white;
+	text-align: left;
+	padding-left:5%;
+}
+.alarm-list{
+	padding-left: 5%;
+}
+input[type=time] {
+    padding: 0;
+    position: relative;
+    left: 0;
+    outline: none;
+    border: 1px solid #cdcdcd;
+    border-color: rgba(0,0,0,.15);
+    background-color: white;
+    color: black;
+    font-size: 16px;
+}
+input[type=number] {
+    padding: 0;
+    position: relative;
+    left: 0;
+    outline: none;
+    border: 1px solid #cdcdcd;
+    border-color: rgba(0,0,0,.15);
+    background-color: white;
+    color: black;
+    font-size: 16px;
+}
+input[type=text] {
+    padding: 0;
+    position: relative;
+    left: 0;
+    outline: none;
+    border: 1px solid #cdcdcd;
+    border-color: rgba(0,0,0,.15);
+    background-color: white;
+    color: black;
+    font-size: 16px;
+}
+button {
+	color: black;
+	padding: 0;
+	position: relative;
+	outline: none;
+}
+
+.footer {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	text-align: left;
+}
